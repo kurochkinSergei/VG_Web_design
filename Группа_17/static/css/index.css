@@ -1,0 +1,75 @@
+/*
+// Цвета 
+// #020304 - черный
+// #541F14 - коричневый
+// #938172 - светло-серый
+// #CC9E61 - оранжевый
+// #626266 - темно-серый
+*/
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE;
+    height: 100%;
+}
+
+.main-grid-row {
+    height: 100%;
+    width: 80%;
+    background-color: #BBBBBB;
+    margin: 0 10%;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.header {
+    background-color: #bb8a51;
+    height: 50px;
+    border-bottom: 5px double #541F14;
+    display: inline-block;
+    width: 100%;
+}
+
+.header__text {
+    font-size: 24px;
+    color: #000000;
+    font-weight: bold;
+    font-family: verdana, calibri;
+    text-align: center;
+    line-height: 30px;
+    padding: 10px 0;
+}
+
+.column {
+    background-color: #bb8a51;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+}
+
+.column__image {
+    width: 80%;
+    //max-width: 100%;
+}
+
+.column__image-container {
+    width: 90%;
+    margin: 5%;
+}
+
+.column__image-title {
+    text-align: center;
+    border-radius: 10px;
+    border-bottom: 10px groove #cc9b62;
+    width: 72%;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 14%;
+    margin-left: 14%;
+    font-size: 18px;
+}
