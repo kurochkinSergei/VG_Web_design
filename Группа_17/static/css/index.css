@@ -23,20 +23,52 @@ body {
     padding-top: 20px;
 }
 
-.header {
+header {
     background-color: #FFB6A3;
     border-bottom: 10px solid #CFCFCF;
     display: inline-block;
     width: 100%;
 }
 
+.header__logo {
+    display: inline-block;
+    width: 10%;
+    vertical-align: middle;
+    min-width: 60px;
+}
+
+.header__logo>img {
+    width: 100%;
+}
+
 .header__text {
+    display: inline-block;
     font-size: 36px;
     color: #4D4D4D;
     font-weight: bold;
-    font-family: comic sans ms, calibri;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    padding: 10px 0;
+    vertical-align: middle;
+    text-shadow: 0 3px 0 #CFCFCF;
+}
+
+.header__menu {
+    vertical-align: middle;
+    display: inline-block;
+    width: 60%;
+}
+
+.header__menu_item {
+    display: inline-block;
+    height: 60px;
+    border-left: 2px solid #eea693;
+    margin: 3%;
+    padding: 2%;
+}
+
+.header__menu_item:hover {
+    background-color: rgba(207, 207, 207, 0.2);
+    border-left: 4px solid #A4E5CE;
 }
 
 .column {
