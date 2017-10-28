@@ -29,6 +29,7 @@
         
         .header__item {
             display: inline-block;
+            vertical-align: middle;
         }
         
         .header__login {
@@ -46,6 +47,37 @@
         .logo {
             height: 100%;
         }
+        
+        .menu__item {
+            display: inline-block;
+            margin-left: 10px;
+            background-color: #E7E7E7;
+            height: 80px;
+            padding: 0 10px;
+            position: relative;
+        }
+        
+        .menu__item_text {
+            line-height: 80px;
+            font-size: 20px;
+        }
+        
+        .menu__content {
+            position: absolute;
+            background-color: #123456;
+            visibility: hidden;
+            width: 150px;
+            top: 80px;
+            left: 0;
+        }
+        
+        .menu__item:hover .menu__content {
+            visibility: visible;
+        }
+        
+        .menu__content:hover {
+            visibility: visible;
+        }
     </style>
     <meta charset="UTF-8">
 </head>
@@ -55,9 +87,83 @@
         <span class="header__item logo-container">
             <img class="logo" src="./../static/img/logo.svg">
         </span>
-        <span class="header__item">текст</span>
-        <span class="header__item header__login">войти</span>
+
+        <nav class="header__item">
+            <div class="menu__item">
+                <div class="menu__item_text">Меню</div>
+                <div class="menu__content">
+                    <p>Выпадающее меню</p>
+                    <p>Выпадающее меню</p>
+                    <p>Выпадающее меню</p>
+                    <p>Выпадающее меню</p>
+                </div>
+            </div>
+            <div class="menu__item">
+                <div class="menu__item_text">Меню</div>
+            </div>
+        </nav>
+
+        <!--
+            <span class="header__item">текст</span>
+            <span class="header__item header__login">В</span>
+        -->
     </div>
+
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </pre>
 </body>
 
 </html>
