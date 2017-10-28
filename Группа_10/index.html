@@ -3,15 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <style>
+        span {
+            display: inline-block;
+            width: 40%;
+        }
+        
+        .logo-container {
+            width: 15%;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        #header {
+            /* морковный фон шапки */
+            background-color: #7A3A05;
+        }
+        /* Для надписи Halloween Сделать белый цвет шрифта 
+            увеличить размер шрифта
+            Выровнять текст по центру */
+    </style>
 </head>
 
 <body>
-    <div style="height: 80px;">
-        <span style="display: inline-block; width: 33%; height: 100%;">
-            <img height="100%" src="./static/img/logo.svg">
+    <div id="header">
+        <span class="logo-container">
+            <img src="./static/img/Halloween.png">
         </span>
-        <span style="display: inline-block; width: 33%;">Здесь будет заголовок</span>
-        <span style="display: inline-block; width: 33%;">Здесь будет цветной блок</span>
+
+        <!-- 
+            <span  >Halloween</span>
+            <span>Здесь будет цветной блок</span>
+        -->
     </div>
 </body>
 
