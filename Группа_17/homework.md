@@ -21,3 +21,11 @@
 >Подготовить макет - значит набросать схему расположения блоков на странице,
 >выбрать цветовую схему,
 >модель поведения блоков
+
+
+Домашнее задание на 18.11.17
+============================
+- Ознакомиться с [flex версткой](http://html5.by/blog/flexbox/)
+- Прочитать про [SVG](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial) и [еще посмотреть примеры](https://developer.mozilla.org/ru/docs/Web/SVG) 
+- [Основы JS](https://learn.javascript.ru/first-steps)
+- [Node.js]()
