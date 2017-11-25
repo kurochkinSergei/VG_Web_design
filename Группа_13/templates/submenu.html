@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <style>
+        .menu {
+            width: 300px;
+            background-color: #9bc99b;
+        }
+        
+        .menu_item,
+        .submenu_item {
+            margin: 5px;
+            padding: 5px;
+        }
+        
+        .submenu_item {
+            background-color: #204b20;
+        }
+        /* СПРЯЧЕМ ПОДМЕНЮ */
+        
+        .menu_item_submenu {
+            transition: height 0.3s ease;
+            visibility: hidden;
+            overflow: hidden;
+            height: 0;
+        }
+        
+        .show_submenu:hover .menu_item_submenu {
+            height: 100px;
+            visibility: visible;
+        }
+        
+        .wrapper {
+            display: flex;
+            height: 60px;
+        }
+        
+        .image {
+            width: 60px;
+            transition: all 0.5s ease;
+        }
+        
+        .text {}
+        
+        .image_wrapper {
+            background-color: rgb(240, 92, 92);
+            display: inline-flex;
+        }
+        
+        .text_wrapper {
+            transition: width 0.5s ease;
+            background-color: rgb(112, 112, 216);
+            height: 100%;
+            display: inline-flex;
+            width: 0px;
+            overflow: hidden;
+        }
+        
+        .wrapper:hover .image {
+            transform-origin: 30px 30px 0;
+            transform: rotate(360deg);
+        }
+        
+        .wrapper:hover .text_wrapper {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="image_wrapper">
+            <img class="image" src="../static/img/gear.png">
+        </div>
+
+        <div class="text_wrapper">
+            <span class="text">ТЕКСТТЕКСТТЕКСТ</span>
+        </div>
+    </div>
+
+    <pre>
+
+
+
+
+
+
+
+
+
+
+</pre>
+    <div class="menu">
+        <div class="menu_item">
+            Пункт_1
+        </div>
+
+        <div class="menu_item show_submenu">
+            <!--Пункт с выпадающим подменю-->
+            <div class="menu_item_text">
+                Пункт_2
+            </div>
+
+            <div class="menu_item_submenu">
+                <div class="submenu_item">
+                    Пункт подменю 1
+                </div>
+                <div class="submenu_item">
+                    Пункт подменю 2
+                </div>
+                <div class="submenu_item">
+                    Пункт подменю 3
+                </div>
+            </div>
+        </div>
+        <div class="menu_item">
+            Пункт_3
+        </div>
+        <div class="menu_item">
+            Пункт_4
+        </div>
+    </div>
+</body>
+
+</html>
