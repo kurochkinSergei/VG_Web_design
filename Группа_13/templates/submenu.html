@@ -32,32 +32,32 @@
         
         .wrapper {
             display: flex;
+            flex-basis: content;
+            align-items: center;
             height: 60px;
         }
         
         .image {
             width: 60px;
-            transition: all 0.5s ease;
+            transition: all 10s ease;
         }
         
         .text {}
         
         .image_wrapper {
             background-color: rgb(240, 92, 92);
-            display: inline-flex;
         }
         
         .text_wrapper {
             transition: width 0.5s ease;
-            background-color: rgb(112, 112, 216);
-            height: 100%;
-            display: inline-flex;
+            background-color: #AAAAAA;
+            height: 90%;
             width: 0px;
             overflow: hidden;
         }
         
         .wrapper:hover .image {
-            transform-origin: 30px 30px 0;
+            transform-origin: 30px 30px;
             transform: rotate(360deg);
         }
         
@@ -68,16 +68,17 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="image_wrapper">
-            <img class="image" src="../static/img/gear.png">
-        </div>
+    <div class="side-menu">
+        <div class="wrapper">
+            <div class="image_wrapper">
+                <img class="image" src="../static/img/gear.png">
+            </div>
 
-        <div class="text_wrapper">
-            <span class="text">ТЕКСТТЕКСТТЕКСТ</span>
+            <div class="text_wrapper">
+                <span class="text">ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ</span>
+            </div>
         </div>
     </div>
-
     <pre>
 
 
