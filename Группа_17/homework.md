@@ -29,3 +29,8 @@
 - Прочитать про [SVG](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial) и [еще посмотреть примеры](https://developer.mozilla.org/ru/docs/Web/SVG) 
 - [Основы JS](https://learn.javascript.ru/first-steps)
 - [Node.js]()
+
+Домашнее задание на 09.12.17
+============================
+- Начать проходить самоучители по JS [превый] (https://learn.javascript.ru/getting-started), [второй] (https://www.w3schools.com/js/) делаем все по порядочку 
+- Прочитать про отправку запросов на [чистом JS](https://learn.javascript.ru/xhr-forms), на [AJAX] (https://learn.javascript.ru/ajax-intro) 
