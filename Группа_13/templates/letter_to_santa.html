@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Письмо деду морозу.</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .address {
+            background-image: url('./../static/img/snowflake.png');
+            background-size: 25px;
+            background-repeat: repeat-x;
+            background-color: #ECF8F7;
+            padding: 25px 5px 10px 5px;
+            border-bottom: 2px solid #B94147;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .address-content {
+            float: right;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            height: 30px;
+            line-height: 30px;
+        }
+        
+        li::before {
+            margin-right: 5px;
+            vertical-align: middle;
+            content: '';
+            background-image: url('./../static/img/snowflake.png');
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="address">
+        <div class="address-content">
+            <b>От</b>: Группы 13<br>
+            <b>Кому:</b> Дедушке Морозу<br>
+            <b>Куда:</b> Далекий Север, Великий Устюг
+        </div>
+    </div>
+
+    <div>
+        <ul>
+            <li>Заслуга 1</li>
+            <li>Заслуга 2</li>
+            <li>Заслуга 3</li>
+        </ul>
+    </div>
+</body>
+
+</html>
