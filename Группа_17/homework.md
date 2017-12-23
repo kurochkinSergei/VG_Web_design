@@ -34,3 +34,17 @@
 ============================
 - Начать проходить самоучители по JS [превый] (https://learn.javascript.ru/getting-started), [второй] (https://www.w3schools.com/js/) делаем все по порядочку 
 - Прочитать про отправку запросов на [чистом JS](https://learn.javascript.ru/xhr-forms), на [AJAX] (https://learn.javascript.ru/ajax-intro) 
+
+Домашнее задание на 31.12.17
+============================
+- Быстренько отметить Новый год.
+- Прочитать про [БЭМ](https://tech.yandex.ru/bem/)
+- Прочитать про [npm](http://prgssr.ru/development/vvedenie-v-paketnyj-menedzher-npm-dlya-nachinayushih.html)
+- Прочитать про сборщики проектов [Webpack](https://proglib.io/p/webpack-in-15/), [Grunt](https://habrahabr.ru/post/244721/)
+- Почитать про [JavaScript, CSS](https://www.yandex.ru/jobs/frontend-interview). Пролистываем требования к кандидатам и смотрим список рекомендованой литературы.
+- Почитать про [Python](https://toster.ru/q/169373), Две самых лучших книги:
+М. Лутц Изучаем python 4-e издание, М. Лутц Программирование на языке Python 4-е издание 
+- Почитать про [Flask](https://habrahabr.ru/post/193242/)
+- Почитать про [Angular](https://habrahabr.ru/post/341688/)
+
+
