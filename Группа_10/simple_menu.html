@@ -5,34 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>submenu</title>
     <style>
         .menu-item {
-            display: inline-block;
+            display: block;
             background: pink;
             width: 80px;
             height: 60px;
-            margin-left: 20px;
             text-align: center;
             line-height: 60px;
             text-decoration: none;
             color: white;
+        }
+        
+        .menu-item-wrapper {
+            position: relative;
+            margin-left: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .submenu {
+            top: 60px;
+            left: 0;
+            position: absolute;
+        }
+        
+        .submenu__image {
+            width: 80px;
         }
     </style>
 </head>
 
 <body>
     <div class="menu-wrapper">
-        <a href="https://google.com" class="menu-item">
-            Блок 1
-        </a>
-        <a href="https://google.com" class="menu-item">
-            Блок 2
-        </a>
-        <a href="https://google.com" class="menu-item">
-            Блок 3
-        </a>
+        <div class="menu-item-wrapper">
+            <a href="https://google.com" class="menu-item">
+                Блок 1
+            </a>
+            <div class="submenu">
+                <img class="submenu__image" src='./static/img/blue_ranger.jpg'>
+                <img class="submenu__image" src='./static/img/blue_ranger.jpg'>
+                <img class="submenu__image" src='./static/img/blue_ranger.jpg'>
+
+            </div>
+        </div>
+
+        <div class="menu-item-wrapper">
+            <a href="https://google.com" class="menu-item">
+                Блок 2
+            </a>
+        </div>
+
+        <div class="menu-item-wrapper">
+            <a href="https://google.com" class="menu-item">
+                Блок 3
+            </a>
+        </div>
     </div>
+
+
+    TEXT sdsdsds
 </body>
 
 </html>
