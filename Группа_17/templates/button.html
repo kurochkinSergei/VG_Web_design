@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Button</title>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrapper {
+            background-color: #eeeeee;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .image-wrapper>img {
+            visibility: visible;
+            width: 500px;
+        }
+        
+        .button-outer {
+            border: 2px solid rgb(57, 25, 3);
+            position: relative;
+            width: 150px;
+            height: 80px;
+        }
+        
+        .button-inner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 150px;
+            height: 80px;
+            border: 2px solid saddlebrown;
+            line-height: 80px;
+            text-align: center;
+            transition: all 0.5s ease;
+            background-color: #eee;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .button-inner:hover {
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="image-wrapper">
+            <img src="../static/img/cat.jpg">
+        </div>
+
+        <div class="button-outer">
+            <div class="button-inner">
+                Кнопка
+            </div>
+        </div>
+    </div>
+
+    <script>
+        'use strict'
+
+        var buttons = document.getElementsByClassName('button-inner')
+
+        var images = document.getElementsByTagName('img')
+
+        var button = buttons[0]
+        var image = images[0]
+            /*
+            var hideImg = function(event) {
+                console.log(event)
+
+                image.style.visibility = 'hidden';
+
+                button.removeEventListener('click', hideImg)
+                button.addEventListener('click', showImg)
+                button.innerHTML = 'Показать'
+            }
+
+            var showImg = function() {
+                image.style.visibility = 'visible';
+
+                button.removeEventListener('click', showImg)
+                button.addEventListener('click', hideImg)
+                button.innerHTML = 'Скырскырскрыть'
+            }
+
+            button.addEventListener('click', hideImg)
+
+            */
+        var isImageHidden = false
+
+        var toggleImage = function() {
+            console.log("sdsd")
+            if (isImageHidden) {
+                image.style.visibility = 'visible';
+                isImageHidden = false;
+            } else {
+                image.style.visibility = 'hidden';
+                isImageHidden = true;
+            }
+        }
+
+        button.addEventListener('click', toggleImage)
+    </script>
+</body>
+
+</html>

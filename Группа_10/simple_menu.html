@@ -25,10 +25,21 @@
             vertical-align: top;
         }
         
+        .menu-item:active {
+            background-color: black;
+        }
+        
         .submenu {
             top: 60px;
             left: 0;
             position: absolute;
+            /*visibility: hidden;*/
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .submenu:hover {
+            opacity: 1;
         }
         
         .submenu__image {
