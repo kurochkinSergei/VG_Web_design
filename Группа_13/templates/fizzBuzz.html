@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var oneHundred = function() {
+            for (var i = 1; i < 101; i++) {
+                var text = ''
+
+                if (i % 3 == 0) {
+                    text = text + "ТРЕМ"
+                }
+                if (i % 5 == 0) {
+                    text = text + "ПЯТИ"
+                }
+
+                if (text) {
+                    document.write(text + '<br>')
+                } else {
+                    document.write(i + '<br>')
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
