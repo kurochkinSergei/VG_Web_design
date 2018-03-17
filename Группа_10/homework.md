@@ -39,3 +39,7 @@
 
 - В файле simple_menu.html сделать так, чтобы submenu было невидимым
 - При наведении на menu-item-wrapper submenu должно становиться видимым
+
+Домашнее задание на 23/03/18
+============================
+    Выполнить [задания](https://htmlacademy.ru/courses/44/run/19) на сайте html-academy по всем типам display: table, table-row, table-cell и так далее
