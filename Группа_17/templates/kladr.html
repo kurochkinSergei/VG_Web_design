@@ -10,6 +10,31 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <script>
+        function hasOwn(obj, property) {
+            return obj.hasOwnProperty(property);
+        }
+
+        function toApiFormat(query) {
+            var params = {},
+                fields = {
+                    type: 'contentType',
+                    name: 'query',
+                    withParents: 'withParent'
+                };
+
+            if (query.parentType && query.parentId) {
+                params[query.parentType + 'Id'] = query.parentId;
+            }
+
+            for (var key in query) {
+                if (hasOwn(query, key) && query[key]) {
+                    params[hasOwn(fields, key) ? fields[key] : key] = query[key];
+                }
+            }
+
+            return params;
+        }
+
         // http://kladr-api.ru/api.php
         var my_data = {
             query: 'Моск',
@@ -19,9 +44,9 @@
 
         var options = {
             url: 'http://kladr-api.ru/api.php',
-            data: JSON.stringify(my_data),
-            contentType: 'application/json',
-            dataType: 'json'
+            type: 'get',
+            data: toApiFormat(my_data),
+            dataType: 'jsonp'
         }
 
         $.ajax(options).done(function(response) {
