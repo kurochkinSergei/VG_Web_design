@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        // http://kladr-api.ru/api.php
+        var my_data = {
+            query: 'Моск',
+            contentType: 'city',
+            limit: 10
+        }
+
+        var options = {
+            url: 'http://kladr-api.ru/api.php',
+            data: JSON.stringify(my_data),
+            contentType: 'application/json',
+            dataType: 'json'
+        }
+
+        $.ajax(options).done(function(response) {
+            console.log(response)
+        }).fail(function() {
+            console.log("EPIC FAIL")
+        })
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
