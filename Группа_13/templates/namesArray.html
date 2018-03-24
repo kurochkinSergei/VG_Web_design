@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Поиск уникальных значений массива и вывод количества</title>
+</head>
+
+<script>
+    var names = ['Игорь', 'Ваня', 'Хани', 'Анастасия', 'Игорь', 'Соул', 'Хани', 'Игорь', 'Игорь', 'Хани', 'Соул', 'Дженнифер', 'Александр Македонский', 'Леха из третьего подъезда', 'Анастасия']
+
+    // Помещаем первое имя в массив уникальных имен
+    var uniqNames = [names[0]]
+
+    //проходим массив names
+    for (var i = 0; i < names.length; i++) {
+        //говорим, что i-ое имя уникально
+        isNameUniq = true
+
+        //проходим массив uniqNames
+        for (var j = 0; j < uniqNames.length; j++) {
+            if (names[i] == uniqNames[j]) {
+                //говорим, что i-ое имя не уникально, 
+                //если оно уже есть массиве уникальных имен
+                isNameUniq = false
+            }
+        }
+        //если i-ое имя уникально добавляем его в массив уникальных имен
+        if (isNameUniq) {
+            uniqNames.push(names[i])
+        }
+    }
+    // выводим массив в консоль
+    console.log(uniqNames)
+</script>
+
+<body>
+    ИМЕНА
+</body>
+
+</html>
