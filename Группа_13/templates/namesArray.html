@@ -11,29 +11,51 @@
 <script>
     var names = ['Игорь', 'Ваня', 'Хани', 'Анастасия', 'Игорь', 'Соул', 'Хани', 'Игорь', 'Игорь', 'Хани', 'Соул', 'Дженнифер', 'Александр Македонский', 'Леха из третьего подъезда', 'Анастасия']
 
-    // Помещаем первое имя в массив уникальных имен
-    var uniqNames = [names[0]]
+    var searcUniqNames = function(names) {
+        var uniqNames = []
 
-    //проходим массив names
-    for (var i = 0; i < names.length; i++) {
-        //говорим, что i-ое имя уникально
-        isNameUniq = true
+        //проходим массив names
+        for (var i = 0; i < names.length; i++) {
+            //говорим, что i-ое имя уникально
+            isNameUniq = true
 
-        //проходим массив uniqNames
-        for (var j = 0; j < uniqNames.length; j++) {
-            if (names[i] == uniqNames[j]) {
-                //говорим, что i-ое имя не уникально, 
-                //если оно уже есть массиве уникальных имен
-                isNameUniq = false
+            //проходим массив уникальных имен uniqNames
+            for (var j = 0; j < uniqNames.length; j++) {
+                if (names[i] == uniqNames[j]) {
+                    //говорим, что i-ое имя не уникально, 
+                    //если оно уже есть массиве уникальных имен
+                    isNameUniq = false
+                }
+            }
+            //если i-ое имя уникально добавляем его в массив уникальных имен
+            if (isNameUniq) {
+                uniqNames.push(names[i])
             }
         }
-        //если i-ое имя уникально добавляем его в массив уникальных имен
-        if (isNameUniq) {
-            uniqNames.push(names[i])
+
+        return uniqNames
+    }
+
+    var countNames = function(uniqNames, names) {
+        //проходим массив уникальных имен
+        for (var i = 0; i < uniqNames.length; i++) {
+            let count = 0
+
+            //проходим массив имен
+            for (var j = 0; j < names.length; j++) {
+                if (names[j] == uniqNames[i]) {
+                    //если нашли повторение, увеличиваем счетчик
+                    count++
+                }
+            }
+
+            console.log(uniqNames[i] + " - " + count)
+            count = 0;
         }
     }
-    // выводим массив в консоль
-    console.log(uniqNames)
+
+    // запускаем функции
+    countNames(searcUniqNames(names), names)
 </script>
 
 <body>
