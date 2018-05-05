@@ -45,12 +45,15 @@
         var options = {
             url: 'http://kladr-api.ru/api.php',
             type: 'get',
-            data: toApiFormat(my_data),
+            data: my_data,
             dataType: 'jsonp'
         }
 
         $.ajax(options).done(function(response) {
             console.log(response)
+            document.write('привет<br>')
+            document.write(JSON.stringify(response))
+
         }).fail(function() {
             console.log("EPIC FAIL")
         })
@@ -58,7 +61,13 @@
 </head>
 
 <body>
-
+    <input type="text" name="input" list="cityname">
+    <datalist id="cityname">
+        <option value="Boston">
+    </datalist>
+    <select>
+        <option>LFLFL</option>
+    </select>
 
 </body>
 

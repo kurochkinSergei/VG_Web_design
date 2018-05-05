@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SNAKE REVOLUTION</title>
+
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            height: 100%;
+        }
+        
+        #canvas {
+            background-color: blanchedalmond;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-left: -325px;
+            margin-top: -325px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="650" height="650"></canvas>
+
+    <script>
+        snake = []
+        head = {
+                x: 300,
+                y: 300
+            }
+            /*
+                Directions
+                'L'
+                'R'
+                'U'
+                'D'
+            */
+        direction = 'R';
+
+        function moveHead(head) {
+            switch (direction) {
+                case 'L':
+                    if (head.x == 0) {
+                        dH = 600;
+                        dV = 0;
+                    } else {
+                        dH = -50;
+                        dV = 0;
+                    }
+
+                    break;
+
+                case 'R':
+                    if (head.x == 600) {
+                        dH = -600;
+                        dV = 0;
+                    } else {
+                        dH = 50;
+                        dV = 0;
+                    }
+                    break
+
+                case 'U':
+                    if (head.y == 0) {
+                        dH = 0;
+                        dV = 600;
+                    } else {
+                        dH = 0;
+                        dV = -50;
+                    }
+                    break
+
+                case 'D':
+                    if (head.y == 600) {
+                        dH = 0;
+                        dV = -600;
+                    } else {
+                        dH = 0;
+                        dV = 50;
+                    }
+
+                    break
+            }
+
+            newHead = {
+                x: head.x + dH,
+                y: head.y + dV
+            }
+
+            return newHead;
+        }
+
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+                ctx.fillRect(head.x, head.y, 50, 50);
+
+                setInterval(function() {
+                    ctx.clearRect(head.x, head.y, 50, 50);
+                    head = moveHead(head)
+                    ctx.fillRect(head.x, head.y, 50, 50);
+
+                }, 1000)
+            }
+        }
+
+        document.getElementsByTagName("html")[0]
+            .addEventListener("keydown", function(event) {
+                switch (event.keyCode) {
+                    case 37:
+                        direction = 'L';
+                        break;
+                    case 38:
+                        direction = 'U';
+                        break;
+                    case 39:
+                        direction = 'R';
+                        break;
+                    case 40:
+                        direction = 'D';
+                        break;
+                    default:
+                        break;
+                }
+            });
+        draw()
+    </script>
+</body>
+
+</html>
