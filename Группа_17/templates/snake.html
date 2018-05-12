@@ -36,11 +36,16 @@
         canvasHeight = 650
         step = 50
 
-        snake = []
-        head = {
+        snake = [{
             x: 300,
             y: 300
-        }
+        }, {
+            x: 250,
+            y: 300
+        }, {
+            x: 200,
+            y: 300
+        }]
 
         //TODO step = { x: 50, y: 50}
         step = 50
@@ -84,19 +89,26 @@
             return newHead;
         }
 
-        function draw() {
+        function initSnake() {
             var canvas = document.getElementById('canvas');
+
             if (canvas.getContext) {
                 var ctx = canvas.getContext('2d');
 
                 ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-                ctx.fillRect(head.x, head.y, 50, 50);
+
+                snake.forEach(element => {
+                    ctx.fillRect(element.x, element.y, 50, 50);
+                });
 
                 setInterval(function() {
-                    ctx.clearRect(head.x, head.y, 50, 50);
-                    head = moveHead(head)
-                    ctx.fillRect(head.x, head.y, 50, 50);
+                    var head = moveHead(snake[0]),
+                        tail = snake.pop()
 
+                    snake.unshift(head)
+
+                    ctx.clearRect(tail.x, tail.y, 50, 50);
+                    ctx.fillRect(head.x, head.y, 50, 50);
                 }, 1000)
             }
         }
@@ -120,7 +132,8 @@
                         break;
                 }
             });
-        draw()
+
+        initSnake()
     </script>
 </body>
 
