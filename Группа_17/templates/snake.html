@@ -14,6 +14,7 @@
         
         body {
             height: 100%;
+            overflow-y: hidden;
         }
         
         #canvas {
@@ -31,68 +32,53 @@
     <canvas id="canvas" width="650" height="650"></canvas>
 
     <script>
+        canvasWidth = 650
+        canvasHeight = 650
+        step = 50
+
         snake = []
         head = {
-                x: 300,
-                y: 300
-            }
-            /*
-                Directions
-                'L'
-                'R'
-                'U'
-                'D'
-            */
+            x: 300,
+            y: 300
+        }
+
+        //TODO step = { x: 50, y: 50}
+        step = 50
+
+        shift = {
+            x: 50,
+            y: 50
+        }
+
+        //Directions: 'L','R','U','D'
         direction = 'R';
 
         function moveHead(head) {
             switch (direction) {
                 case 'L':
-                    if (head.x == 0) {
-                        dH = 600;
-                        dV = 0;
-                    } else {
-                        dH = -50;
-                        dV = 0;
-                    }
-
+                    shift.x = head.x == 0 ? canvasWidth - step : -step
+                    shift.y = 0
                     break;
 
                 case 'R':
-                    if (head.x == 600) {
-                        dH = -600;
-                        dV = 0;
-                    } else {
-                        dH = 50;
-                        dV = 0;
-                    }
+                    shift.x = head.x == canvasWidth - step ? -canvasWidth : step
+                    shift.y = 0
                     break
 
                 case 'U':
-                    if (head.y == 0) {
-                        dH = 0;
-                        dV = 600;
-                    } else {
-                        dH = 0;
-                        dV = -50;
-                    }
+                    shift.x = 0
+                    shift.y = head.y == 0 ? canvasHeight : -step
                     break
 
                 case 'D':
-                    if (head.y == 600) {
-                        dH = 0;
-                        dV = -600;
-                    } else {
-                        dH = 0;
-                        dV = 50;
-                    }
-
+                    shift.x = 0
+                    shift.y = head.y == canvasHeight - step ? -canvasHeight : step
                     break
             }
 
             newHead = {
-                x: head.x + dH,
-                y: head.y + dV
+                x: head.x + shift.x,
+                y: head.y + shift.y
             }
 
             return newHead;
