@@ -32,9 +32,13 @@
     <canvas id="canvas" width="650" height="650"></canvas>
 
     <script>
-        canvasWidth = 650
-        canvasHeight = 650
-        step = 50
+        const canvasWidth = 650
+        const canvasHeight = 650
+        const step = 50
+
+        //Directions: 'L','R','U','D'
+        direction = 'R';
+        isDirChangedInInterv = false
 
         snake = [{
             x: 300,
@@ -47,16 +51,10 @@
             y: 300
         }]
 
-        //TODO step = { x: 50, y: 50}
-        step = 50
-
         shift = {
             x: 50,
             y: 50
         }
-
-        //Directions: 'L','R','U','D'
-        direction = 'R';
 
         function moveHead(head) {
             switch (direction) {
@@ -91,15 +89,25 @@
 
         function isSnakeSuicided(headLocation, snakeArray) {
             var isSuicideCommmited = false
-            for (var i = 1; i < snakeArray.length; i++) {
-                if (headLocation.x == snakeArray[i].x) {
-                    if ((headLocation.y == snakeArray[i].y)) {
-                        isSuicideCommmited = true
-                    }
-                }
+
+            //suicide is only possible when snake is made of 5+ blocks
+            for (var i = 4; i < snakeArray.length; i++) {
+                if (headLocation.x == snakeArray[i].x && headLocation.y == snakeArray[i].y)
+                    isSuicideCommmited = true
             }
 
             return isSuicideCommmited
+        }
+
+        function isSnakeOnCell(cell, snakeArray) {
+            var isCellOccupied = false
+
+            snakeArray.forEach(element => {
+                if (cell.x == element.x && cell.y == element.y)
+                    isCellOccupied = true
+            });
+
+            return
         }
 
         function initSnake() {
@@ -123,34 +131,45 @@
                     ctx.clearRect(tail.x, tail.y, 50, 50);
                     ctx.fillRect(head.x, head.y, 50, 50);
 
-                    console.log(isSnakeSuicided(head, snake))
                     if (isSnakeSuicided(head, snake))
                         clearInterval(gameIntervalId)
-                }, 1000)
+
+                    isDirChangedInInterv = false
+                }, 750)
             }
         }
 
         document.getElementsByTagName("html")[0]
             .addEventListener("keydown", function(event) {
-                switch (event.keyCode) {
-                    case 37:
-                        if (direction != 'R')
-                            direction = 'L';
-                        break;
-                    case 38:
-                        if (direction != 'D')
-                            direction = 'U';
-                        break;
-                    case 39:
-                        if (direction != 'L')
-                            direction = 'R';
-                        break;
-                    case 40:
-                        if (direction != 'U')
-                            direction = 'D';
-                        break;
-                    default:
-                        break;
+                if (!isDirChangedInInterv) {
+                    switch (event.keyCode) {
+                        case 37:
+                            if (direction != 'R') {
+                                direction = 'L';
+                                isDirChangedInInterv = true
+                            }
+                            break;
+                        case 38:
+                            if (direction != 'D') {
+                                direction = 'U';
+                                isDirChangedInInterv = true
+                            }
+                            break;
+                        case 39:
+                            if (direction != 'L') {
+                                direction = 'R';
+                                isDirChangedInInterv = true
+                            }
+                            break;
+                        case 40:
+                            if (direction != 'U') {
+                                direction = 'D';
+                                isDirChangedInInterv = true
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
             });
 
