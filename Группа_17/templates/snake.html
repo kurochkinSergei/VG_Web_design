@@ -66,18 +66,18 @@
                     break;
 
                 case 'R':
-                    shift.x = head.x == canvasWidth - step ? -canvasWidth : step
+                    shift.x = head.x == canvasWidth - step ? -canvasWidth + step : step
                     shift.y = 0
                     break
 
                 case 'U':
                     shift.x = 0
-                    shift.y = head.y == 0 ? canvasHeight : -step
+                    shift.y = head.y == 0 ? canvasHeight - step : -step
                     break
 
                 case 'D':
                     shift.x = 0
-                    shift.y = head.y == canvasHeight - step ? -canvasHeight : step
+                    shift.y = head.y == canvasHeight - step ? -canvasHeight + step : step
                     break
             }
 
@@ -87,6 +87,19 @@
             }
 
             return newHead;
+        }
+
+        function isSnakeSuicided(headLocation, snakeArray) {
+            var isSuicideCommmited = false
+            for (var i = 1; i < snakeArray.length; i++) {
+                if (headLocation.x == snakeArray[i].x) {
+                    if ((headLocation.y == snakeArray[i].y)) {
+                        isSuicideCommmited = true
+                    }
+                }
+            }
+
+            return isSuicideCommmited
         }
 
         function initSnake() {
@@ -101,7 +114,7 @@
                     ctx.fillRect(element.x, element.y, 50, 50);
                 });
 
-                setInterval(function() {
+                var gameIntervalId = setInterval(function() {
                     var head = moveHead(snake[0]),
                         tail = snake.pop()
 
@@ -109,6 +122,10 @@
 
                     ctx.clearRect(tail.x, tail.y, 50, 50);
                     ctx.fillRect(head.x, head.y, 50, 50);
+
+                    console.log(isSnakeSuicided(head, snake))
+                    if (isSnakeSuicided(head, snake))
+                        clearInterval(gameIntervalId)
                 }, 1000)
             }
         }
@@ -117,16 +134,20 @@
             .addEventListener("keydown", function(event) {
                 switch (event.keyCode) {
                     case 37:
-                        direction = 'L';
+                        if (direction != 'R')
+                            direction = 'L';
                         break;
                     case 38:
-                        direction = 'U';
+                        if (direction != 'D')
+                            direction = 'U';
                         break;
                     case 39:
-                        direction = 'R';
+                        if (direction != 'L')
+                            direction = 'R';
                         break;
                     case 40:
-                        direction = 'D';
+                        if (direction != 'U')
+                            direction = 'D';
                         break;
                     default:
                         break;
