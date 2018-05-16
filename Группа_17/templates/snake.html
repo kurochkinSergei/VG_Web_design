@@ -32,6 +32,9 @@
     <canvas id="canvas" width="650" height="650"></canvas>
 
     <script>
+        //TODO
+        //class cell, methods: check for snake, draw
+
         const canvasWidth = 650
         const canvasHeight = 650
         const step = 50
@@ -56,7 +59,9 @@
             y: 50
         }
 
-        function moveHead(head) {
+        apples = {}
+
+        moveHead = head => {
             switch (direction) {
                 case 'L':
                     shift.x = head.x == 0 ? canvasWidth - step : -step
@@ -87,8 +92,8 @@
             return newHead;
         }
 
-        function isSnakeSuicided(headLocation, snakeArray) {
-            var isSuicideCommmited = false
+        isSnakeSuicided = (headLocation, snakeArray) => {
+            var flag = false
 
             //suicide is only possible when snake is made of 5+ blocks
             for (var i = 4; i < snakeArray.length; i++) {
@@ -96,21 +101,35 @@
                     isSuicideCommmited = true
             }
 
-            return isSuicideCommmited
+            return flag
         }
 
-        function isSnakeOnCell(cell, snakeArray) {
-            var isCellOccupied = false
+        isSnakeOnCell = (cell, snakeArray) => {
+            var flag = false
 
             snakeArray.forEach(element => {
                 if (cell.x == element.x && cell.y == element.y)
-                    isCellOccupied = true
+                    flag = true
             });
 
-            return
+            return flag
         }
 
-        function initSnake() {
+        generateApple = snakeArray => {
+            var apple = {},
+                flag = false
+            do {
+                apple.x = Math.floor(canvasWidth / step * Math.random())
+                apple.y = Math.floor(canvasWidth / step * Math.random())
+                flag = isSnakeOnCell(apple, snake)
+            } while (flag)
+
+            console.log(apple)
+
+            return apple
+        }
+
+        initSnake = () => {
             var canvas = document.getElementById('canvas');
 
             if (canvas.getContext) {
@@ -122,7 +141,9 @@
                     ctx.fillRect(element.x, element.y, 50, 50);
                 });
 
-                var gameIntervalId = setInterval(function() {
+                generateApple(snake)
+
+                var gameIntervalId = setInterval(() => {
                     var head = moveHead(snake[0]),
                         tail = snake.pop()
 
@@ -134,13 +155,16 @@
                     if (isSnakeSuicided(head, snake))
                         clearInterval(gameIntervalId)
 
+                    //check if snake has eaten an apple
+                    generateApple(snake)
+
                     isDirChangedInInterv = false
                 }, 750)
             }
         }
 
         document.getElementsByTagName("html")[0]
-            .addEventListener("keydown", function(event) {
+            .addEventListener("keydown", event => {
                 if (!isDirChangedInInterv) {
                     switch (event.keyCode) {
                         case 37:
